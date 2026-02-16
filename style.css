@@ -25,7 +25,8 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       135deg,
       rgba(0, 153, 219, 0.9) 0%,
       rgba(0, 104, 181, 0.9) 50%,
@@ -162,22 +163,6 @@ button .fas {
   margin-right: 10px;
 }
 
-.attendance-header i {
-  font-size: 22px;
-  margin-right: 8px;
-}
-
-/* Attendance section spacing */
-.attendance-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 15px;
-  font-size: 17px;
-  color: #64748b;
-}
-
 /* Attendance tracker styling */
 .attendance-tracker {
   max-width: 700px;
@@ -260,6 +245,54 @@ button .fas {
   color: #003c71;
 }
 
+.celebration-message {
+  background: linear-gradient(120deg, #fff7ed, #fef9c3, #ecfdf3);
+  color: #ac4708;
+  border: 2px solid #fbbf24;
+}
+
+.celebration-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.3), rgba(0, 36, 92, 0.9));
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.celebration-overlay.show {
+  display: flex;
+  animation: celebration-pop 0.35s ease-out;
+}
+
+.celebration-content {
+  background: rgba(255, 255, 255, 0.92);
+  border: 3px solid #fbbf24;
+  border-radius: 16px;
+  padding: 28px 34px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  max-width: 80%;
+}
+
+#celebrationMessage {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+@keyframes celebration-pop {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .confetti {
   position: absolute;
   top: 50%;
@@ -283,14 +316,6 @@ button .fas {
       scale(1.1) rotate(360deg);
     opacity: 0;
   }
-}
-
-/* Counter */
-#attendeeCount {
-  color: #0071c5;
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 2px;
 }
 
 /* Footer */
@@ -373,6 +398,74 @@ select {
   font-size: 15px;
   font-weight: 500;
   color: #475569;
+}
+
+/* Attendee list */
+.attendee-list {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 2px solid #f1f5f9;
+  text-align: left;
+}
+
+.attendee-list h3 {
+  color: #64748b;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.attendee-empty {
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.attendee-list-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.attendee-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.attendee-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.attendee-team {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.attendee-team.water {
+  color: #0369a1;
+  background: #e0f2fe;
+}
+
+.attendee-team.zero {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.attendee-team.power {
+  color: #b45309;
+  background: #ffedd5;
 }
 
 /* Mobile responsive */
